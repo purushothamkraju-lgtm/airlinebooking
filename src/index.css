@@ -1,0 +1,310 @@
+:root {
+  color-scheme: light dark;
+  --max-width: 1080px;
+  --gap: 1rem;
+  --accent: light-dark(#1d5fb4, #5b9bf0);
+  --border: light-dark(#e2e2e2, #333);
+  --surface: light-dark(#ffffff, #1b1b1b);
+  --surface-muted: light-dark(#f6f7f9, #222);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--surface-muted);
+  color: light-dark(#1a1a1a, #eee);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--gap);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.75rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-header nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+.site-header nav {
+  align-items: center;
+}
+
+.nav-user {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  max-width: 360px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  opacity: 0.7;
+}
+
+/* Search form (Home, My bookings) */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  flex: 1 1 160px;
+}
+
+.search-form input,
+form input,
+form select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: inherit;
+  font-size: 1rem;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.9rem;
+}
+
+button,
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled),
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Flight results list (Home) */
+.flight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flight-card {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.flight-card:hover {
+  border-color: var(--accent);
+}
+
+.flight-card-route {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.flight-card-arrow {
+  opacity: 0.6;
+}
+
+.flight-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.flight-card-price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Fare class cards (Flight detail) */
+.fare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fare-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.fare-price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+.fare-seats {
+  opacity: 0.75;
+  margin-bottom: 1rem;
+}
+
+.flight-summary {
+  opacity: 0.85;
+  margin: 0.25rem 0;
+}
+
+/* Booking form */
+.passenger-fields {
+  background: var(--surface-muted);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.booking-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.form-error {
+  color: #d1453b;
+  font-weight: 600;
+}
+
+.pnr {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* My bookings list */
+.booking-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.booking-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-confirmed {
+  background: light-dark(#e3f6e8, #15311d);
+  color: light-dark(#1d7a38, #7ddb97);
+}
+
+.badge-cancelled,
+.badge-soldout {
+  background: light-dark(#fbe8e6, #3a1d1b);
+  color: light-dark(#b23327, #ef8f85);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+@media (max-width: 640px) {
+  .flight-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .flight-card-price {
+    text-align: left;
+  }
+
+  .booking-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
